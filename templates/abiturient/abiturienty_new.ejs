@@ -1,0 +1,259 @@
+<% layout('/layout/page.ejs') -%>
+<% block ('title', 'Абитуриент') -%>
+<div class="row">
+
+    <ul class="collapsible popout" data-collapsable="accordion">
+
+        <li>
+
+            <div class="collapsible-header"><i class="material-icons">account_box</i>Общая информация об абитуриенте</div>
+            <div class="collapsible-body">
+                <div class="col s12 m12 l12">
+                    <div class="card-panel">
+                        <!--<h4 class="header2">Личная карточка</h4>-->
+
+                        <div class="row">
+                            <form class="col s12 common-abit">
+
+                                <div class="row">
+                                    <div class="input-field col s4">
+                                        <input id="reg_number" type="text">
+                                        <label for="reg_number">Регистрационный номер</label>
+                                    </div>
+
+                                    <div class="file-field input-field col s8">
+                                        <div class="btn">
+                                            <span>Фото</span>
+                                            <input type="file">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" type="text" placeholder="Загрузить файл для фото">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s4">
+                                        <input id="surname" type="text">
+                                        <label for="surname">Фамилия</label>
+                                    </div>
+
+                                    <div class="input-field col s4">
+                                        <input id="last_name" type="text">
+                                        <label for="last_name">Имя</label>
+                                    </div>
+
+                                    <div class="input-field col s4">
+                                        <input id="middle_name" type="text">
+                                        <label for="middle_name">Отчество</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="input-field col s6">
+                                        <select>
+                                            <option value="" disabled selected>Нет</option>
+                                            <% new_abiturient.nationalities.forEach( function( nationality ){ %>
+                                            <option value='nationality<%= nationality._id %>'><%= nationality.desc %></option>
+                                            <% }); %>
+                                        </select>
+                                        <label>Выберите национальность</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <select>
+                                            <option value="" disabled selected>Нет</option>
+                                            <option value="sex1">Мужчина</option>
+                                            <option value="sex2">Женщина</option>
+                                        </select>
+                                        <label>Выберите пол</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Сохранить
+                                            <i class="mdi-content-send right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li>
+
+            <div class="collapsible-header"><i class="material-icons">https</i>Личная информация абитуриента</div>
+            <div class="collapsible-body">
+                <div class="col s12 m12 l12">
+                    <div class="card-panel">
+                        <!--<h4 class="header2">Личная карточка</h4>-->
+
+                        <div class="row">
+                            <form class="col s12 personal-info-abit">
+
+                                <div class="row">
+
+                                    <div class="input-field col s4 departments-dd">
+                                        <input class="typeahead" id="abit_department" type="text" placeholder="Департаменты">
+                                        <label for="abit_department">Департамент</label>
+                                    </div>
+
+                                    <div class="input-field col s4 formobuchs-dd">
+                                        <select>
+                                            <option value="" disabled selected>Нет</option>
+                                            <% new_abiturient.formobuchs.forEach( function( formob ){ %>
+                                            <option value='formobuch<%= formob._id %>'><%= formob.desc %></option>
+                                            <% }); %>
+                                        </select>
+                                        <label>Формы обучения</label>
+                                    </div>
+
+                                    <div class="input-field col s4 acaddegree-dd">
+                                        <select>
+                                            <option value="" disabled selected>Нет</option>
+                                            <% new_abiturient.academicdegree.forEach( function( acdeg ){ %>
+                                            <option value='acaddegree<%= acdeg._id %>'><%= acdeg.desc %></option>
+                                            <% }); %>
+                                        </select>
+                                        <label for="acaddegree">Академическая степень</label>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s4">
+                                        <input id="passport" type="text">
+                                        <label for="passport">Паспорт серия</label>
+                                    </div>
+
+                                    <div class="input-field col s4">
+                                        <input id="attes" type="text">
+                                        <label for="attes">Аттестат</label>
+                                    </div>
+
+                                    <div class="input-field col s4">
+                                        <input id="diplom" type="text">
+                                        <label for="diplom">Диплом</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s4">
+                                        <input id="ort" type="text">
+                                        <label for="ort">ОРТ</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input id="birthdate" type="date" class="datepicker">
+                                        <label for="birthdate">Дата рождения</label>
+                                    </div>
+
+                                    <div class="input-field col s6">
+                                        <input id="email5" type="email">
+                                        <label for="email">Email</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Сохранить
+                                            <i class="mdi-content-send right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </li>
+
+        <li>
+
+            <div class="collapsible-header"><i class="material-icons">location_on</i>Контакты абитуриента</div>
+            <div class="collapsible-body">
+                <div class="col s12 m12 l12">
+                    <div class="card-panel">
+
+                        <div class="row">
+                            <form class="col s12 contact-abit">
+
+                                <div class="row">
+
+                                    <div class="input-field col s4 countries-dd">
+                                        <select>
+                                            <option value="" disabled selected>Нет</option>
+                                            <% new_abiturient.countries.forEach( function( country ){ %>
+                                            <option value='country<%= country._id %>'><%= country.desc %></option>
+                                            <% }); %>
+                                        </select>
+                                        <label>Выберите страну</label>
+                                    </div>
+
+                                    <div class="input-field col s4 oblast-dd">
+                                        <select>
+                                            <option value="" disabled selected>Нет</option>
+                                            <option value="region1">г. Бишкек</option>
+                                            <option value="region2">Чуй обл</option>
+                                        </select>
+                                        <label>Выберите область</label>
+                                    </div>
+
+                                    <div class="input-field col s4 districts-dd">
+                                        <select>
+                                            <option value="" disabled selected>Нет</option>
+                                            <% new_abiturient.districts.forEach( function( district ){ %>
+                                            <option value='region<%= district._id %>'><%= district.desc %></option>
+                                            <% }); %>
+                                        </select>
+                                        <label>Выберите район</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="input-field col s12">
+                                        <input id="home-address" type="text">
+                                        <label for="home-address">Адрес абитуриента</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Сохранить
+                                            <i class="mdi-content-send right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </li>
+    </ul>
+</div>
